@@ -18,8 +18,6 @@ namespace Seriport_alistirma
 
     public partial class Form1 : Form
     {
-        //SqlConnection baglanti = new SqlConnection("Data Source=SULEYMAN;Initial Catalog =Sirketdb;Integrated Security=SSPI");
-
        public static BaglantiSinif baglantiadres = new BaglantiSinif();
        SqlConnection baglanti = new SqlConnection(baglantiadres.Adres);
 
@@ -227,7 +225,7 @@ namespace Seriport_alistirma
                 DataSet dataset = new DataSet();
                 for (int i = 0; i < Convert.ToInt32(tbxYazdirAdet.Text); i++)
                 {
-                    //da = new SqlDataAdapter("SELECT * FROM EtiketBilgiler where ID = '" + dgwTablo.CurrentRow.Cells[0].Value.ToString() + "' Order by ID desc", baglanti);
+                 
                     da = new SqlDataAdapter("SELECT top 1 * FROM EtiketBilgiler Order by ID desc", baglanti);
                     da.Fill(dataset, "dataset");
                     baglanti.Close();
